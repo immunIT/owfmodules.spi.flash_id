@@ -1,4 +1,3 @@
-# owfmodules.skeleton
-Module base repository
+# owfmodules.spi.flash_id
 
-Please read [CONTRIBUTING.md](https://bitbucket.org/octowire/octowire-framework/src/master/CONTRIBUTING.md) to follow the contribution process.
+Module getting the ID of an SPI flash (RDID)
