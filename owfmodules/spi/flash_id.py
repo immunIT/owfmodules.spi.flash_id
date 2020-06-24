@@ -1,10 +1,10 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 
-# Octowire SPI flash id module
-# Copyright (c) Jordan Ovrè / Paul Duncan
-# License: GPLv3
-# Paul Duncan / Eresse <eresse@dooba.io>
-# Jordan Ovrè / Ghecko <ghecko78@gmail.com
+# Octowire Framework
+# Copyright (c) ImmunIT - Jordan Ovrè / Paul Duncan
+# License: Apache 2.0
+# Paul Duncan / Eresse <pduncan@immunit.ch>
+# Jordan Ovrè / Ghecko <jovre@immunit.ch>
 
 
 import codecs
@@ -21,7 +21,7 @@ class FlashID(AModule):
             'name': 'SPI flash ID',
             'version': '1.0.0',
             'description': 'Module getting the ID of an SPI flash (RDID)',
-            'author': 'Jordan Ovrè <ghecko78@gmail.com> / Paul Duncan <eresse@dooba.io>'
+            'author': 'Jordan Ovrè / Ghecko <jovre@immunit.ch>, Paul Duncan / Eresse <pduncan@immunit.ch>'
         })
         self.options = {
             "spi_bus": {"Value": "", "Required": True, "Type": "int",
