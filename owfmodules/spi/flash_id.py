@@ -6,7 +6,6 @@
 # Paul Duncan / Eresse <pduncan@immunit.ch>
 # Jordan Ovrè / Ghecko <jovre@immunit.ch>
 
-
 import codecs
 
 from octowire.spi import SPI
@@ -20,20 +19,20 @@ class FlashID(AModule):
         self.meta.update({
             'name': 'SPI flash ID',
             'version': '1.0.0',
-            'description': 'Module getting the ID of an SPI flash (RDID)',
+            'description': 'Obtain identification information of SPI flash devices (RDID)',
             'author': 'Jordan Ovrè / Ghecko <jovre@immunit.ch>, Paul Duncan / Eresse <pduncan@immunit.ch>'
         })
         self.options = {
             "spi_bus": {"Value": "", "Required": True, "Type": "int",
-                        "Description": "The octowire SPI bus (0=SPI0 or 1=SPI1)", "Default": 0},
+                        "Description": "SPI bus (0=SPI0 or 1=SPI1)", "Default": 0},
             "cs_pin": {"Value": "", "Required": True, "Type": "int",
-                       "Description": "The octowire GPIO used as chip select (CS)", "Default": 0},
+                       "Description": "GPIO used as chip select (CS)", "Default": 0},
             "spi_baudrate": {"Value": "", "Required": True, "Type": "int",
-                             "Description": "set SPI baudrate (1000000 = 1MHz) maximum = 50MHz", "Default": 1000000},
+                             "Description": "SPI frequency (1000000 = 1MHz) maximum = 50MHz", "Default": 1000000},
             "spi_polarity": {"Value": "", "Required": True, "Type": "int",
-                             "Description": "set SPI polarity (1=high or 0=low)", "Default": 0},
+                             "Description": "SPI polarity (1=high or 0=low)", "Default": 0},
             "spi_phase": {"Value": "", "Required": True, "Type": "string",
-                          "Description": "set SPI phase (1=high or 0=low)", "Default": 0}
+                          "Description": "SPI phase (1=high or 0=low)", "Default": 0}
         }
 
     def flash_id(self):
@@ -56,7 +55,7 @@ class FlashID(AModule):
         resp = spi_interface.receive(3)
         cs.status = 1
         if not resp:
-            self.logger.handle("Unable to get a response while reading from the SPI flash", self.logger.ERROR)
+            self.logger.handle("Unable to get a response from the SPI flash", self.logger.ERROR)
             return None
         flash_id = codecs.encode(resp, 'hex').decode().upper()
         manufacturer = flash_id[0:2]
@@ -70,9 +69,9 @@ class FlashID(AModule):
         """
         Main function.
         Print/return the ID of an SPI flash.
-        :return: Nothing or bytes, depending of the 'return_value' parameter.
+        :return: Nothing or bytes, depending on the 'return_value' parameter.
         """
-        # Detect and connect to the octowire hardware. Set the self.owf_serial variable if found.
+        # Detect and connect to the Octowire hardware. Set the self.owf_serial variable if found.
         self.connect()
         if not self.owf_serial:
             return None
