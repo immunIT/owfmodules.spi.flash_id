@@ -18,7 +18,7 @@ class FlashID(AModule):
         super(FlashID, self).__init__(owf_config)
         self.meta.update({
             'name': 'SPI flash ID',
-            'version': '1.0.0',
+            'version': '1.0.1',
             'description': 'Obtain identification information of SPI flash devices (RDID)',
             'author': 'Jordan Ovrè / Ghecko <jovre@immunit.ch>, Paul Duncan / Eresse <pduncan@immunit.ch>'
         })
