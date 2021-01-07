@@ -18,7 +18,7 @@ class FlashID(AModule):
         super(FlashID, self).__init__(owf_config)
         self.meta.update({
             'name': 'SPI flash ID',
-            'version': '1.0.1',
+            'version': '1.0.2',
             'description': 'Obtain identification information of SPI flash devices (RDID)',
             'author': 'Jordan Ovrè / Ghecko <jovre@immunit.ch>, Paul Duncan / Eresse <pduncan@immunit.ch>'
         })
@@ -28,7 +28,8 @@ class FlashID(AModule):
             "cs_pin": {"Value": "", "Required": True, "Type": "int",
                        "Description": "GPIO used as chip select (CS)", "Default": 0},
             "spi_baudrate": {"Value": "", "Required": True, "Type": "int",
-                             "Description": "SPI frequency (1000000 = 1MHz) maximum = 50MHz", "Default": 1000000},
+                             "Description": "SPI frequency (1000000 = 1MHz) Minimum: 240kHz - Maximum: 60MHz",
+                             "Default": 1000000},
             "spi_polarity": {"Value": "", "Required": True, "Type": "int",
                              "Description": "SPI polarity (1=high or 0=low)", "Default": 0},
             "spi_phase": {"Value": "", "Required": True, "Type": "string",
